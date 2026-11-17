@@ -10,6 +10,42 @@ public class Main {
         randomize(matr);
         printMatr(matr);
         printLineSums(matr);
+        printMaxElement(matr, 1);
+        printMaxElement(matr, 2);
+        printMaxElement(matr, 3);
+    }
+
+    private static void printMaxElement(int[][] matr, int flags) {
+        int max = 0, maxI = 0, maxJ = 0;
+        int min = matr[0][0], minI = 0, minJ = 0;
+        for (int i = 0; i < matr.length; i++) {
+            for (int j = 0; j < matr[i].length; j++) {
+                if (max < matr[i][j]) {
+                    max = matr[i][j];
+                    maxI = i + 1;
+                    maxJ = j + 1;
+                }
+                if (min > matr[i][j]) {
+                    min = matr[i][j];
+                    minI = i + 1;
+                    minJ = j + 1;
+
+                }
+            }
+        }
+        if (flags == 1)
+            IO.println(" Максимальное значение элемента [" + maxI + "][" + maxJ + "] имеет значение " + max);
+        if (flags == 2) IO.println(" Максимальное значение в строке [" + maxI + "] имеет значение " + max);
+        if (flags == 3) {
+            for (int i = 0; i < matr.length; i++) {
+                if (minI != (i + 1)) {
+                    if (maxI != (i + 1)) {
+                        IO.println(" Строка [" + (i + 1) + "] не имеет максимального значения " + max + " и минимального значения " + min);
+                    }
+                }
+
+            }
+        }
     }
 
     private static int[][] createMatrixOfZeroes() {
@@ -47,7 +83,7 @@ public class Main {
             for (int j = 0; j < matr[i].length; j++) {
                 s += matr[i][j];
             }
-            System.out.println("сумма элементов строки " + i + " равна " + s);
+            System.out.println("сумма элементов строки " + (i + 1) + " равна " + s);
         }
     }
 }
