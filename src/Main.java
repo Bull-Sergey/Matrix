@@ -13,6 +13,7 @@ public class Main {
         printMaxElement(matr, 1);
         printMaxElement(matr, 2);
         printMaxElement(matr, 3);
+        printMaxElement(matr, 4);
     }
 
     private static void printMaxElement(int[][] matr, int flags) {
@@ -36,7 +37,8 @@ public class Main {
         if (flags == 1)
             IO.println(" Максимальное значение элемента [" + maxI + "][" + maxJ + "] имеет значение " + max);
         if (flags == 2) IO.println(" Максимальное значение в строке [" + maxI + "] имеет значение " + max);
-        if (flags == 3) {
+        if (flags == 3) IO.println(" Максимальное значение в столбце [" + maxJ + "] имеет значение " + max);
+        if (flags == 4) {
             for (int i = 0; i < matr.length; i++) {
                 if (minI != (i + 1)) {
                     if (maxI != (i + 1)) {
